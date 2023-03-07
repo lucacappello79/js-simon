@@ -11,9 +11,12 @@ setTimeout(function() {wrapperEl.textContent = "";}, 10000);
 
 
 const totalInputs = generateInputs(totalNumbers);
+userNumbersEl.append(...totalInputs);
 
 
 
+
+//..........functions
 
 function generateSpan(numbers, wrapperEl) {
 
@@ -27,7 +30,6 @@ function generateSpan(numbers, wrapperEl) {
 
     }
 }
-
 
 function generateNumbers(totalNumbers) {
 
@@ -55,7 +57,7 @@ function generateInputs(totalNumbers) {
 
       totalInputs.push(inputEl);
 
-      userNumbersEl.append(inputEl);
+      //userNumbersEl.append(inputEl); 
 
     }
 
