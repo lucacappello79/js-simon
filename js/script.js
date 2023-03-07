@@ -5,7 +5,7 @@ let buttonEl = document.getElementById("compare")
 let totalNumbers = 5
 
 
-const numbers = generateNumbers(totalNumbers)
+const numbers = generateNumbers(totalNumbers) 
 generateSpan(numbers, wrapperEl);
 
 
@@ -22,21 +22,38 @@ buttonEl.addEventListener("click", function(){
     let guessedNumbers = [];
     for (let i = 0; i < totalInputs.length; i++){
         
+        // oppure let userNumber = +(totalInputs[i].value);
         let userNumber = Number(totalInputs[i].value);
 
-        guessedNumbers.push(userNumber)
+        guessedNumbers.push(userNumber);
+
+        if (numbers.includes(userNumber)) {
+
+            totalInputs[i].classList.add("correct");
+
+            totalInputs[i].classList.remove("incorrect");
+
+        } else {
+
+            totalInputs[i].classList.add("incorrect");
+
+            totalInputs[i].classList.remove("correct");
+
+        }
+
     }
 
     let rightGuesses = getRightGuesses(guessedNumbers, numbers);
+
     alert("You guessed " + rightGuesses.length + " numbers: " + rightGuesses);
-
-
 
 })
 
 //..........functions
 
-function generateSpan(numbers, wrapperEl) {
+
+//function generateSpan(numbers, wrapperEl) {
+function generateSpan(numbers) {
 
     for (let i = 0; i < numbers.length; i++) {
     
@@ -51,21 +68,21 @@ function generateSpan(numbers, wrapperEl) {
 
 function generateNumbers(totalNumbers) {
 
-    const numbers = [];
+    const arrayN = [];
 
     for (let i = 0; i < totalNumbers; i++) {
         
-        numbers.push(Math.floor(Math.random() * 100) + 1);
+        arrayN.push(Math.floor(Math.random() * 100) + 1);
 
     }
 
-    return numbers;
+    return arrayN;
 
 }
 
 function generateInputs(totalNumbers) {
 
-    const totalInputs = [];
+    const arrayInputs = [];
 
     for (let i = 0; i < totalNumbers; i++) {
 
@@ -73,19 +90,21 @@ function generateInputs(totalNumbers) {
 
       inputEl.type = "number";
 
-      totalInputs.push(inputEl);
+      arrayInputs.push(inputEl);
 
       //userNumbersEl.append(inputEl); 
 
+      //userNumbersEl.append(...totalInputs); totalInputs non esiste ancora fino a che non ritorno l'array qui sotto
+
     }
 
-    return totalInputs;
+    return arrayInputs;
 
   }
 
   function getRightGuesses (guessedNumbers, numbers) {
 
-    let rightGuesses = []
+    let arrayRightGuesses = []
 
     for (let i = 0; i < guessedNumbers.length; i++) {
 
@@ -93,11 +112,11 @@ function generateInputs(totalNumbers) {
 
         if (numbers.includes(userNumber)) {
 
-            rightGuesses.push(userNumber);
+            arrayRightGuesses.push(userNumber);
         }
 
     }
 
-    return rightGuesses;
+    return arrayRightGuesses;
 
   }
