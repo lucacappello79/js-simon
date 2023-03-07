@@ -3,11 +3,14 @@ let userNumbersEl = document.getElementById("numbers-user")
 let totalNumbers = 5
 
 
-
 const numbers = generateNumbers(totalNumbers)
 
+generateSpan(numbers, wrapperEl);
 
 
+
+
+function generateSpan(numbers, wrapperEl) {
 
 for (let i = 0; i < numbers.length; i++) {
     
@@ -18,8 +21,7 @@ for (let i = 0; i < numbers.length; i++) {
     wrapperEl.append(numberSpan);
 
 }
-
-
+}
 
 
 function generateNumbers(totalNumbers) {
