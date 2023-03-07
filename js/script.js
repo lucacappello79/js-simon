@@ -8,6 +8,8 @@ generateSpan(numbers, wrapperEl);
 
 
 setTimeout(function() {wrapperEl.textContent = "";}, 10000);
+setTimeout(function() {userNumbersEl.style.display = "flex"}, 10000)
+  
 
 
 const totalInputs = generateInputs(totalNumbers);
