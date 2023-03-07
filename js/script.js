@@ -4,23 +4,28 @@ let totalNumbers = 5
 
 
 const numbers = generateNumbers(totalNumbers)
-
 generateSpan(numbers, wrapperEl);
+
+
+setTimeout(function() {wrapperEl.textContent = "";}, 10000);
+
+
+const totalInputs = generateInputs(totalNumbers);
 
 
 
 
 function generateSpan(numbers, wrapperEl) {
 
-for (let i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < numbers.length; i++) {
     
-    let numberSpan = document.createElement("span");
+        let numberSpan = document.createElement("span");
 
-    numberSpan.textContent = numbers[i];
+        numberSpan.textContent = numbers[i];
 
-    wrapperEl.append(numberSpan);
+        wrapperEl.append(numberSpan);
 
-}
+    }
 }
 
 
@@ -35,4 +40,25 @@ function generateNumbers(totalNumbers) {
     }
 
     return numbers;
+
 }
+
+function generateInputs(totalNumbers) {
+
+    const totalInputs = [];
+
+    for (let i = 0; i < totalNumbers; i++) {
+
+      let inputEl = document.createElement("input");
+
+      inputEl.type = "number";
+
+      totalInputs.push(inputEl);
+
+      userNumbersEl.append(inputEl);
+
+    }
+
+    return totalInputs;
+
+  }
